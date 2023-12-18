@@ -1,7 +1,7 @@
 from app import app 
 from .controller import UserController, AuthController, TodoController
 from flask import request
-
+from flask_jwt_extended import jwt_required
 @app.route('/')
 def index():
     return "Hello, World!"
@@ -44,5 +44,8 @@ def todoDetail(id):
     elif request.method == 'DELETE':
         return TodoController.delete(id)
 
+@app.route('/refresh', methods=['GET'])
+def refresh():
+    return AuthController.refresh()
 
 

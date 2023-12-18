@@ -4,7 +4,9 @@ from app import db
 from app.utils.transform import transformTodos, singleTransformTodo
 from app.utils import response
 from datetime import datetime
+from flask_jwt_extended import jwt_required
 
+@jwt_required()
 def index():
     try:
         id = request.args.get('user_id')
