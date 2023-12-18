@@ -1,4 +1,6 @@
 my-env/
+.flaskenv
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
